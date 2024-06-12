@@ -25,7 +25,34 @@ class Reviews:
          
          cursor.execute(sql_reviews)
          conn.commit()
-         
+
+
+    @classmethod
+    def drop_table(cls):
+        sql_reviews = '''
+            DROP TABLE IF EXISTS reviews;
+        '''
+        
+        cursor.execute(sql_reviews)
+        conn.commit()
+
+        
+    def save(self):
+        sql_reviews = '''
+            INSERT INTO reviews (
+                movie_id,
+                user_id,
+                review_text,
+                rating
+            ) VALUES (? ,? ,? ,?);
+        '''
+        cursor.execute(sql_reviews,(self.movie_id, self.user_id, self.review_text, self.rating),)
+
+        conn.commit()
+
+        self.id = cursor.lastrowid
+        
+
 
 
          
