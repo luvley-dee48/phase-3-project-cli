@@ -1,5 +1,5 @@
 from lib.model.movies import Movies
-
+from lib.model.reviews import Reviews
 
 Movies.drop_table()
 Movies.create_table()
@@ -34,3 +34,15 @@ movies8 = Movies.create("Princess switch", "Comedy", "2018", "6.1/10")
 # movies5.save()
 # movies6.save()
 # movies7.save() 
+
+
+Reviews.drop_table()
+Reviews.create_table()
+
+# review1 = Reviews.create(movies1.id, "Great show..... Unfortunate they have fired the actor that makes it great.", "9/10")
+# review2 = Reviews.create(movies2.id, "Very disappointing.Seasons 1 & 2 were entertaining but season 3 was kinda boring.", "6/10")
+# review3 = Reviews.create(movies3.id,  "Lots of fun for a casual movie night!", "7/10")
+# review3 = Reviews.create(movies4.id,  "Great series, want more!", "8/10")
+# review3 = Reviews.create(movies5.id,  "Action Packed and very entertaining.", "5/10")
+# review3 = Reviews.create(movies6.id,  "Nice series, terrible ending", "7/10")
+# review3 = Reviews.create(movies7.id,  "Loved the Movie, Ep 3 finally got it right!", "7.4/10")
