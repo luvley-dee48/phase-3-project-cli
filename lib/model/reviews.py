@@ -62,6 +62,26 @@ class Reviews:
 
         return reviews
 
+    def update(self):
+        '''This updates an existing movie record in the database.'''
+        sql_reviews = '''
+            UPDATE reviews SET movie_id = ?, user_id = ?, review_text= ?, rating = ? WHERE id = ?
+        '''
+        cursor.execute(sql_reviews, (self.movie_id, self.user_id, self.review_text, self.rating, self.id))
+        conn.commit()
+
+    def delete(self):
+        sql_reviews = '''
+            DELETE FROM reviews WHERE id = ?;
+
+        '''
+        cursor.execute(sql_reviews, (self.id,))
+        conn.commit()
+    
+    def __repr__(self):
+        return f"< Reviews{self.movie_id} {self.user_id} {self.review_text} {self.rating} >"
+
+
     
 
 
