@@ -53,6 +53,16 @@ class Reviews:
         self.id = cursor.lastrowid
         
 
+    @classmethod
+    def create(cls, movie_id, use_id, review_text, rating):
+        reviews = cls(movie_id, use_id, review_text, rating) 
+
+        #  saving the instances in the db
+        reviews.save()
+
+        return reviews
+
+    
 
 
          
