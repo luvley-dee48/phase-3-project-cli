@@ -20,8 +20,8 @@ def main_menu():
         elif choice == '3':
             manage_reviews()
         elif choice == '4':
-            print("Exiting the application.")
-           
+            print("Exiting the application. Byeeeeee!❤️")
+            break
         else:
             print("Invalid choice. Please try again.")
 
