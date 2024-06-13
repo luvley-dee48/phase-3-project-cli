@@ -73,7 +73,7 @@ class Movies:
 
         return movies 
 
-    
+    # this is a method that will update the existing movie record based on the object. It can use the update with the object ID to identify the record and also it will be able to update. 
     def update(self):
         '''This updates an existing movie record in the database.'''
         sql = '''
@@ -82,7 +82,7 @@ class Movies:
         cursor.execute(sql, (self.title, self.genre, self.release_date, self.rating, self.id))
         conn.commit()
 
-
+    # will delete the movie record
     def delete(self):
         sql = '''
             DELETE FROM movies WHERE id = ?;
@@ -90,7 +90,7 @@ class Movies:
         '''
         cursor.execute(sql, (self.id,))
         conn.commit()
-    
+    # shows how the the object is represented as a string
     def __repr__(self):
         return f"< Movies{self.title} {self.genre} {self.release_date} {self.rating} >"
 
