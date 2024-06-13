@@ -1,5 +1,6 @@
 from lib.model.movies import Movies
 from lib.model.reviews import Reviews
+from lib.model.users import Users
 
 Movies.drop_table()
 Movies.create_table()
@@ -25,8 +26,7 @@ movies8 = Movies.create("Princess switch", "Comedy", "2018", "6.1/10")
 
 # for movie in all_movies:
 #     print(movie)
-# print(Movies.all)
-
+ 
 # movies1.save()
 # movies2.save()
 # movies3.save()
@@ -39,10 +39,21 @@ movies8 = Movies.create("Princess switch", "Comedy", "2018", "6.1/10")
 Reviews.drop_table()
 Reviews.create_table()
 
-# review1 = Reviews.create(movies1.id, "Great show..... Unfortunate they have fired the actor that makes it great.", "9/10")
-# review2 = Reviews.create(movies2.id, "Very disappointing.Seasons 1 & 2 were entertaining but season 3 was kinda boring.", "6/10")
-# review3 = Reviews.create(movies3.id,  "Lots of fun for a casual movie night!", "7/10")
-# review3 = Reviews.create(movies4.id,  "Great series, want more!", "8/10")
-# review3 = Reviews.create(movies5.id,  "Action Packed and very entertaining.", "5/10")
-# review3 = Reviews.create(movies6.id,  "Nice series, terrible ending", "7/10")
-# review3 = Reviews.create(movies7.id,  "Loved the Movie, Ep 3 finally got it right!", "7.4/10")
+review1 = Reviews.create(movies1.id, 6,"Great show..... Unfortunate they have fired the actor that makes it great.", "9/10")
+review2 = Reviews.create(movies2.id, 1,"Very disappointing.Seasons 1 & 2 were entertaining but season 3 was kinda boring.", "6/10")
+review3 = Reviews.create(movies3.id,  4,"Lots of fun for a casual movie night!", "7/10")
+review3 = Reviews.create(movies4.id, 7, "Great series, want more!", "8/10")
+review3 = Reviews.create(movies5.id, 3, "Action Packed and very entertaining.", "5/10")
+review3 = Reviews.create(movies6.id, 5, "Nice series, terrible ending", "7/10")
+review3 = Reviews.create(movies7.id, 2, "Loved the Movie, Ep 3 finally got it right!", "7.4/10")
+
+Users.drop_table()
+Users.create_table()
+
+user1 = Users.create("Mk","mutisyamoses722@gmail.com","mkblueband")
+user2 = Users.create("Gee","geetheelegend@gmail.com","geeprado")
+user3 = Users.create("Althea","twinkegrand@gmail.com","Musical")
+user4 = Users.create("Rubie","hilzrubie@gmail.com","Addie")
+user5 = Users.create("Jones","jones21@gmail.com","jn123")
+user6 = Users.create("Kelvin","kelvin@gmail.com","thirdlife6")
+user7 = Users.create("Sharon","sharon12@gmail.com","roadtrip")
