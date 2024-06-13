@@ -1,10 +1,11 @@
 from database.connection import conn, cursor
 
 class Movies:
-
+# will define the class to represent a movie record 
     all = {}
-
+# the all in this case will act as the dictonary to store the movie objects by their IDS
     def __init__(self, title, genre, release_date, rating, id=None):
+        # the constractor for my movies class
         self.id = id
         self.title = title
         self.genre = genre
@@ -12,6 +13,7 @@ class Movies:
         self.rating = rating
 
     @classmethod
+    # this is a method that will create the movies table if it doesn't already exist
     def create_table(cls):
         '''This is going to create a movies table in our db'''
 
@@ -31,6 +33,7 @@ class Movies:
 
 
     @classmethod
+    # this is a class method that will drop the movies table if it already exists
     def drop_table(cls):
         sql = '''
             DROP TABLE IF EXISTS movies;
@@ -41,6 +44,7 @@ class Movies:
         conn.commit()
 
 
+    # this is a method that will save the movies object to the database. It can also update the all dictonary within the saved object
     def save(self):
         sql = '''
             INSERT INTO movies (
@@ -59,6 +63,7 @@ class Movies:
         # update all the dict in the saved instance
         type(self).all[self.id] = self
 
+    # creates a new movies object and calls the save method in order to return the created movie object
     @classmethod
     def create(cls, title, genre, release_date, rating):
         movies = cls(title, genre, release_date, rating) 
