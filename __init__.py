@@ -22,7 +22,7 @@ movies8 = Movies.create("Princess switch", "Comedy", "2018", "6.1/10")
 
 # movies8.delete()
 
-# # all_movies = Movies.fetch_all()
+# all_movies = Movies.fetch_all()
 
 # for movie in all_movies:
 #     print(movie)

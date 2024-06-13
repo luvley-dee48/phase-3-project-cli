@@ -112,7 +112,7 @@ class Movies:
 
         return movies
 
-
+    # will show all the movie records from the database
     @classmethod
     def fetch_all(cls):
         sql = 'SELECT * FROM movies;'
