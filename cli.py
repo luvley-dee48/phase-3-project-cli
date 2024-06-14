@@ -3,6 +3,7 @@ from lib.model.movies import Movies
 from lib.model.reviews import Reviews
 from lib.model.users import Users
 
+# this function displays the main menu with options to manage users, movies, reviews, or exit the application.
 def main_menu():
     while True:
         print("\n ********* Main Menu ***********")
@@ -24,7 +25,7 @@ def main_menu():
             break
         else:
             print("Invalid choice. Please try again.")
-
+# hese functions handle user interactions within their respective categories (users, movies, reviews). They offer sub-menus for creating, viewing, updating, and deleting data.
 def manage_users():
     while True:
         print("\n********* Manage Users *************")
