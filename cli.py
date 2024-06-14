@@ -164,7 +164,7 @@ def create_movie():
     title = input("Enter title: ").strip()
     genre = input("Enter genre: ").strip()
     release_date = input("Enter release date (YYYY-MM-DD): ").strip()
-    rating = input("Enter rating (1-5): ").strip()
+    rating = input("Enter rating (1-10): ").strip()
 
     movie = Movies.create(title, genre, release_date, int(rating))
     print(f"Movie created: {movie}")

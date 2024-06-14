@@ -12,6 +12,38 @@ class Movies:
         self.release_date = release_date
         self.rating = rating
 
+    @property
+    def title(self):
+        return self._title
+
+    @title.setter
+    def title(self, value):
+        self._title = value
+
+    @property
+    def genre(self):
+        return self._genre
+
+    @genre.setter
+    def genre(self, value):
+        self._genre = value
+
+    @property
+    def release_date(self):
+        return self._release_date
+
+    @release_date.setter
+    def release_date(self, value):
+        self._release_date = value
+
+    @property
+    def rating(self):
+        return self._rating
+
+    @rating.setter
+    def rating(self, value):
+        self._rating = value
+
     @classmethod
     # this is a method that will create the movies table if it doesn't already exist
     def create_table(cls):
@@ -119,3 +151,5 @@ class Movies:
         cursor.execute(sql)
         rows = cursor.fetchall()
         return [cls.instance_from_db(row) for row in rows]
+    
+

@@ -9,6 +9,33 @@ class Users:
         self.email = email
         self.password = password
 
+    @property
+    def username(self):
+        return self._username
+
+    @username.setter
+    def username(self, value):
+        # Add any constraints or validation you need
+        self._username = value
+
+    @property
+    def email(self):
+        return self._email
+
+    @email.setter
+    def email(self, value):
+        # Add any constraints or validation you need
+        self._email = value
+
+    @property
+    def password(self):
+        return self._password
+
+    @password.setter
+    def password(self, value):
+        # Add any constraints or validation you need
+        self._password = value
+
     @classmethod
     def create_table(cls):
         '''Create the users table in the database'''
@@ -89,3 +116,6 @@ class Users:
         cursor.execute(sql_users)
         rows = cursor.fetchall()
         return [cls.instance_from_db(row) for row in rows]
+
+
+    

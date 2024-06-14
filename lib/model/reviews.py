@@ -7,6 +7,7 @@ class Reviews:
         self.review_text = review_text
         self.rating = rating
 
+    
     @classmethod
     def create_table(cls):
          '''This is going to create a movies table in our db'''
@@ -80,6 +81,75 @@ class Reviews:
     
     def __repr__(self):
         return f"< Reviews{self.movie_id} {self.user_id} {self.review_text} {self.rating} >"
+    
+      # Property for movie_id with validation
+    @property
+    def movie_id(self):
+        return self._movie_id
+
+    @movie_id.setter
+    def movie_id(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Movie ID must be an integer.")
+        self._movie_id = value
+
+    # Property for user_id with validation
+    @property
+    def user_id(self):
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, value):
+        if not isinstance(value, int):
+            raise ValueError("User ID must be an integer.")
+        self._user_id = value
+
+    # Property for review_text with validation
+    @property
+    def review_text(self):
+        return self._review_text
+
+    @review_text.setter
+    def review_text(self, value):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Review text must be a non-empty string.")
+        self._review_text = value.strip()
+
+         
+
+    @classmethod
+    def find_by_id(cls, review_id):
+        '''Find a review by its ID.'''
+        sql_reviews = '''
+            SELECT * FROM reviews WHERE id = ?;
+        '''
+        cursor.execute(sql_reviews, (review_id,))
+        row = cursor.fetchone()
+        if row:
+            return cls(*row)
+        return None
+
+    @classmethod
+    def find_by_movie_id(cls, movie_id):
+        '''Find reviews by movie ID.'''
+        sql_reviews = '''
+            SELECT * FROM reviews WHERE movie_id = ?;
+        '''
+        cursor.execute(sql_reviews, (movie_id,))
+        rows = cursor.fetchall()
+        return [cls(*row) for row in rows]
+
+    @classmethod
+    def find_by_user_id(cls, user_id):
+        '''Find reviews by user ID.'''
+        sql_reviews = '''
+            SELECT * FROM reviews WHERE user_id = ?;
+        '''
+        cursor.execute(sql_reviews, (user_id,))
+        rows = cursor.fetchall()
+        return [cls(*row) for row in rows]
+    
+    
 
 
     

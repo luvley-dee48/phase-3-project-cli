@@ -15,9 +15,6 @@ All the classes are responsible for managing records. They support basic CRUD fu
   - The `Movies`, `Users`, and `Reviews` classes include methods for creating and dropping tables.
   - Use the CLI to execute these methods and set up your database.
 
-- **Populating the Database:**
-  - Add initial data by calling the `create` method on each class or using the provided scripts.
-
 ### Example:
 
 ````python
@@ -82,7 +79,7 @@ You now have a basic idea of what constitutes a CLI. Take a look at the director
 
 - Add, update, and delete movie records.
 - Manage user accounts, including creating, updating, and deleting users.
-- Post, update, and delete reviews for movies.
+- update, and delete reviews for movies.
 - View all movies and reviews.
 - View all reviews by a specific user or for a specific movie.
 - CLI
