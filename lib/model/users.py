@@ -1,14 +1,15 @@
 from database.connection import conn, cursor
 
 class Users:
+    # all acts as a dictonary to store user objects 
     all = {}
-
+    # the init will became a constructor for the users class
     def __init__(self, username, email, password, id=None):
         self.id = id
         self.username = username
         self.email = email
         self.password = password
-
+    # the property is used to define the getter and setter methods
     @property
     def username(self):
         return self._username
@@ -36,6 +37,7 @@ class Users:
         # Add any constraints or validation you need
         self._password = value
 
+    # This method creates the "users" table in the database if it doesn't exist.
     @classmethod
     def create_table(cls):
         '''Create the users table in the database'''
@@ -50,6 +52,7 @@ class Users:
         cursor.execute(sql_users)
         conn.commit()
 
+    # this will drop the users table 
     @classmethod
     def drop_table(cls):
         '''Drop the users table if it exists'''
@@ -59,6 +62,7 @@ class Users:
         cursor.execute(sql_users)
         conn.commit()
 
+    # This method saves the user object to the database. Will also updates the object's id with the newly generated ID and adds the object to the all dictionary.
     def save(self):
         '''Save the user instance to the database'''
         sql_users = '''
@@ -69,6 +73,7 @@ class Users:
         self.id = cursor.lastrowid
         type(self).all[self.id] = self
 
+    # creating new user objects
     @classmethod
     def create(cls, username, email, password):
         '''Create a new user instance and save it to the database'''
@@ -76,6 +81,7 @@ class Users:
         user.save()
         return user
 
+    # This method updates an existing user record in the database based on the object.
     def update(self):
         '''Update the user instance in the database'''
         sql_users = '''
@@ -84,6 +90,7 @@ class Users:
         cursor.execute(sql_users, (self.username, self.email, self.password, self.id))
         conn.commit()
 
+    # This method deletes the user record associated with the object from the database
     def delete(self):
         '''Delete the user instance from the database'''
         sql_users = '''
@@ -92,8 +99,11 @@ class Users:
         cursor.execute(sql_users, (self.id,))
         conn.commit()
 
+    #  shows how the the object is represented as a strin
     def __repr__(self):
         return f"<Users {self.username} {self.email} {self.password}>"
+    
+    # This class method takes a database row (tuple) and tries to find a corresponding user object in the all dictionary using the ID. 
 
     @classmethod
     def instance_from_db(cls, row):

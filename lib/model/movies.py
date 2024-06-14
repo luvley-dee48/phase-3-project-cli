@@ -12,6 +12,7 @@ class Movies:
         self.release_date = release_date
         self.rating = rating
 
+    # for the properties and setter they are used to define the getter and setter methods for accessing and modifying the attributes while u just add
     @property
     def title(self):
         return self._title
